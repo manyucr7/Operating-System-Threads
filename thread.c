@@ -23,7 +23,7 @@ void context_switch(struct thread *prev, struct thread *next);
 static void push_back(struct thread *ti)
 {
     struct thread *n = malloc(sizeof(struct thread));
-    n->t=ti;
+    n->esp=ti;
     n->prev=NULL;
     n->next=NULL;
     struct thread *temp= ready_list;
