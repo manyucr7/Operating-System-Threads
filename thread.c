@@ -13,13 +13,6 @@ struct thread {
 	struct thread *prev;
 };
 
-// insert the input thread to the end of the ready list.
-struct node {
-    struct thread *t;
-    struct node *next;
-    struct node *prev;
-};
-
 struct thread *ready_list = NULL;     // ready list
 struct thread *cur_thread = NULL;     // current thread
 
@@ -29,7 +22,7 @@ void context_switch(struct thread *prev, struct thread *next);
 // insert the input thread to the end of the ready list.
 static void push_back(struct thread *ti)
 {
-    struct node n = (struct node*)malloc(sizeof(struct node));
+    struct thread *n = malloc(sizeof(struct thread));
     n->t=ti;
     n->prev=NULL;
     n->next=NULL;
