@@ -37,7 +37,7 @@ static void push_back(struct thread *ti)
     while(temp->next!=NULL){
         temp=temp->next;
     }
-    temp->next=node;
+    temp->next=n;
     n->prev=temp;
 }
 
