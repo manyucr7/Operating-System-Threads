@@ -29,30 +29,28 @@ void context_switch(struct thread *prev, struct thread *next);
 // insert the input thread to the end of the ready list.
 static void push_back(struct thread *ti)
 {
-    node = (struct node*)malloc(sizeof(struct node));
-    node->t=ti;
-    node->prev=NULL;
-    node->next=NULL;
+    struct node n = (struct node*)malloc(sizeof(struct node));
+    n->t=ti;
+    n->prev=NULL;
+    n->next=NULL;
     struct thread *temp= ready_list;
     while(temp->next!=NULL){
         temp=temp->next;
     }
     temp->next=node;
-    node->prev=temp;
+    n->prev=temp;
 }
 
 // remove the first thread from the ready list and return to caller.
 static struct thread *pop_front()
 {
-    if (*ready_list == NULL) {
-        return;
+    if (ready_list == NULL) {
+        return NULL;
     }
     struct thread *temp=ready_list;
     ready_list=ready_list->next;
     ready_list->prev=NULL;
-
-    free(temp);
-    return;
+    return temp;
 }
 
 // the next thread to schedule is the first thread in the ready list.
