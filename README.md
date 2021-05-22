@@ -1,3 +1,3 @@
 # Operating System: Threads
-
-Read pdf for complete details
+Implementing a non-preemptive threading library NPTlib for application threads
+Read pdf for further details
