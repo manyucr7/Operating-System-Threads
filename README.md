@@ -1,1 +1,3 @@
-# OS_A2
+# Operating System: Threads
+
+Read pdf for complete details
